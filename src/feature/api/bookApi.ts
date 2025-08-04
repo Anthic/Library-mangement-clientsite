@@ -1,18 +1,23 @@
 import type { IBook } from "@/app/book.interface";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const getApiBaseUrl = () => {
-
   if (import.meta.env.DEV) {
-    return import.meta.env.VITE_API_BASE_URL
+    return import.meta.env.VITE_API_BASE_URL;
   }
-  
-  return import.meta.env.VITE_API_BASE_URL 
+
+  return import.meta.env.VITE_API_BASE_URL;
 };
 
 export const bookApi = createApi({
   reducerPath: "bookApi",
-  baseQuery: fetchBaseQuery({ baseUrl: getApiBaseUrl() }),
-  tagTypes: ["Book","Borrow"],
+  baseQuery: fetchBaseQuery({
+    baseUrl: getApiBaseUrl(),
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }),
+  tagTypes: ["Book", "Borrow"],
   endpoints: (builder) => ({
     //get all the books
     getBooks: builder.query<
@@ -44,7 +49,7 @@ export const bookApi = createApi({
     >({
       query: ({ id, body }) => ({
         url: `/books/${id}`,
-        method: "PUT", 
+        method: "PUT",
         body,
       }),
       invalidatesTags: ["Book"],

@@ -13,7 +13,13 @@ const getApiBaseUrl = () => {
 };
 export const borrowApi = createApi({
   reducerPath: "borrowApi",
-  baseQuery: fetchBaseQuery({ baseUrl: getApiBaseUrl() }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: getApiBaseUrl(),
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }),
   tagTypes: ["Borrow", "Book"],
   endpoints: (builder) => ({
     //borrow book
