@@ -22,7 +22,7 @@ const BookList = () => {
   const [selectedBookId, setSelectedBookId] = useState<string>("");
 
   const { data, isLoading, error, refetch } = useGetBooksQuery();
-  console.log("API Response:", data); 
+
   const books: IBook[] = data?.data ?? [];
   const [deleteBook] = useDeleteBookMutation();
 
@@ -155,7 +155,6 @@ const BookList = () => {
         </Table>
       </div>
 
-      
       <Modal
         isOpen={isEditModalOpen}
         onClose={handleCloseEditModal}

@@ -1,69 +1,83 @@
-# React + TypeScript + Vite
+# Library Management System - Client Side 📚
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimal library management system built with React, Redux Toolkit (RTK Query), TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Live Demo 🌐
+[Visit Live Site](https://library-mangement-clientsite.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features 🚀
 
-## Expanding the ESLint configuration
+### Book Management
+- View all books in a responsive table format
+- Add new books with details
+- Edit existing book information
+- Delete books with confirmation
+- Borrow books with quantity and due date
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Core Functionalities
+- **Book List:** Display all books with search and filter
+- **Add Book:** Create new book entries
+- **Edit Book:** Modify existing book details
+- **Delete Book:** Remove books with confirmation
+- **Borrow Book:** Track book borrowing with due dates
+- **Borrow Summary:** View all borrowed books summary
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack 💻
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **React** - Frontend library
+- **TypeScript** - Type safety
+- **Redux Toolkit & RTK Query** - State management
+- **Tailwind CSS** - Styling
+- **React Router** - Navigation
+- **React Toastify** - Notifications
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Getting Started 🏁
+
+1. **Clone the repository**
+```bash
+git clone [your-repo-link]
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. **Install dependencies**
+```bash
+cd [your-repo-name]
+npm install
 ```
+3. **Start the development server**
+```bash
+npm run dev
+``` 
+4. **Open in your browser**
+   Navigate to `http://localhost:5173` (or the port specified in your environment).
+5. **Project Structure**
+```
+src/
+  ├── app/
+  │   ├── store.ts
+  │   └── hook.ts
+  ├── components/
+  │   ├── BookList.tsx
+  │   ├── BookForm.tsx
+  │   └── ...
+  ├── features/
+  │   └── api/
+  │       ├── bookApi.ts
+  │       └── borrowApi.ts
+  └── pages/
+      ├── AllBooks.tsx
+      ├── AddBook.tsx
+      └── ...
+ ```   
+6. **API Integration 🔌**
+```
+Uses RTK Query for API calls
+Endpoints include:
+  GET /books - Fetch all books
+  POST /books - Add new book
+  PATCH /books/:id - Update book
+  DELETE /books/:id - Delete book
+  POST /borrow - Borrow book
+  ```
+7. **Deployment**
+   - Build the project using `npm run build`
+   - Deploy the `dist` folder to your preferred hosting service
+   - Ensure environment variables are set in the hosting environment
